@@ -4,7 +4,7 @@ description: Information models for the groengascapaciteits data product.
 title: Groengascapaciteitskaart
 id: http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-groengas
 imports:
-- linkml:types
+  - linkml:types
 license: https://www.apache.org/licenses/LICENSE-2.0.txt
 prefixes:
   linkml: https://w3id.org/linkml/
