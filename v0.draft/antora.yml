@@ -1,0 +1,6 @@
+name: dp-capaciteitskaart-groengas
+version: v0.draft
+title: Groengascapaciteitskaart
+nav:
+- modules/ROOT/nav.adoc
+- modules/schema/nav.adoc

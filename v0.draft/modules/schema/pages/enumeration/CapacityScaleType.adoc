@@ -1,0 +1,41 @@
+= `CapacityScaleType`
+:toclevels: 4
+
+
++++Capacity, expressed on a scale.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Enumeration
+
+| URI
+| `this:CapacityScaleKind`
+
+
+| CIM standard (perspective)
+| IEC61970 (Grid)
+
+
+
+|===
+
+== Values
+
+[cols="1,1,5",width=100%]
+|===
+| Value | URI | Description
+
+| `1000_2000`
+| `this:CapacityScaleKind.1000_2000`
+| n/a
+
+| `2000_5000`
+| `this:CapacityScaleKind.2000_5000`
+| n/a
+
+| `5000_15000`
+| `this:CapacityScaleKind.5000_15000`
+| n/a
+|===

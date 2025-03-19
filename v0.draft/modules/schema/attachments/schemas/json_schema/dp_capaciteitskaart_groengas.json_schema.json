@@ -1,0 +1,927 @@
+{
+    "$defs": {
+        "BaseWork": {
+            "additionalProperties": false,
+            "description": "Common representation for work and work tasks.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "time_schedules": {
+                    "description": "All time schedules for this work or work task.",
+                    "items": {
+                        "$ref": "#/$defs/WorkTimeSchedule"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "BaseWork",
+            "type": "object"
+        },
+        "CapacityScale": {
+            "additionalProperties": false,
+            "description": "Capacity, expressed on a scale.",
+            "properties": {
+                "unit": {
+                    "$ref": "#/$defs/UnitSymbol"
+                },
+                "value": {
+                    "$ref": "#/$defs/CapacityScaleType"
+                }
+            },
+            "required": [
+                "unit",
+                "value"
+            ],
+            "title": "CapacityScale",
+            "type": "object"
+        },
+        "CapacityScaleType": {
+            "description": "Capacity, expressed on a scale.",
+            "enum": [
+                "1000_2000",
+                "2000_5000",
+                "5000_15000"
+            ],
+            "title": "CapacityScaleType",
+            "type": "string"
+        },
+        "CoordinateSystem": {
+            "additionalProperties": false,
+            "description": "Coordinate reference system.",
+            "properties": {
+                "crs_urn": {
+                    "description": "A Uniform Resource Name (URN) for the coordinate reference system (crs) used to define 'Location.PositionPoints'.An example would be the European Petroleum Survey Group (EPSG) code for a coordinate reference system, defined in URN under the Open Geospatial Consortium (OGC) namespace as: urn:ogc:def:crs:EPSG::XXXX, where XXXX is an EPSG code (a full list of codes can be found at the EPSG Registry web site http://www.epsg-registry.org/). To define the coordinate system as being WGS84 (latitude, longitude) using an EPSG OGC, this attribute would be urn:ogc:def:crs:EPSG::4.3.2.6A profile should limit this code to a set of allowed URNs agreed to by all sending and receiving parties.",
+                    "type": "string"
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "crs_urn"
+            ],
+            "title": "CoordinateSystem",
+            "type": "object"
+        },
+        "DateTimeInterval": {
+            "additionalProperties": false,
+            "description": "Interval between two date and time points, where the interval includes the start time but excludes end time.",
+            "properties": {
+                "end": {
+                    "description": "End date and time of this interval.  The end date and time where the interval is defined up to, but excluded.",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "start": {
+                    "description": "Start date and time of this interval.  The start date and time is included in the defined interval.",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "DateTimeInterval",
+            "type": "object"
+        },
+        "Document": {
+            "additionalProperties": false,
+            "description": "Parent class for different groupings of information collected and managed as a part of a business process. It will frequently contain references to other objects, such as assets, people and power system resources.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Document",
+            "type": "object"
+        },
+        "EnergyArea": {
+            "additionalProperties": false,
+            "description": "Describes an area having energy production or consumption.  Specializations are intended to support the load allocation function as typically required in energy management systems or planning studies to allocate hypothesized load levels to individual load points for power flow analysis.  Often the energy area can be linked to both measured and forecast load levels.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "generation_available_capacity": {
+                    "$ref": "#/$defs/CapacityScale",
+                    "description": "Transport capacity available to fulfill transport requests that have not yet been submitted in an energy area.",
+                    "minimum": 0
+                },
+                "generation_potential": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/CapacityScale"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Amount of gas that can be produced, taking into account environmental factors such as available raw materials.",
+                    "minimum": 0
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "market_evaluation_points": {
+                    "description": "The identification of entities where energy products are measured or computed.",
+                    "items": {
+                        "$ref": "#/$defs/MarketEvaluationPoint"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "postcode_areas": {
+                    "description": "Postcode Areas serviced by this EnergyArea.",
+                    "items": {
+                        "$ref": "#/$defs/PostcodeArea"
+                    },
+                    "type": "array"
+                },
+                "pressure_level": {
+                    "$ref": "#/$defs/PressureLevelType",
+                    "description": "Range of gas pressure within which a system operates."
+                },
+                "works": {
+                    "description": "All the works performed for this EnergyArea.",
+                    "items": {
+                        "$ref": "#/$defs/Work"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "generation_available_capacity",
+                "pressure_level",
+                "postcode_areas"
+            ],
+            "title": "EnergyArea",
+            "type": "object"
+        },
+        "GeographicalRegion": {
+            "additionalProperties": false,
+            "description": "A geographical region of a power system network model.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "regions": {
+                    "description": "All sub-geographical regions within this geographical region.",
+                    "items": {
+                        "$ref": "#/$defs/SubGeographicalRegion"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "regions"
+            ],
+            "title": "GeographicalRegion",
+            "type": "object"
+        },
+        "HeatmapDataSet": {
+            "additionalProperties": false,
+            "description": "A single instance of a published dataset.",
+            "properties": {
+                "conforms_to": {
+                    "type": "string"
+                },
+                "contact_point": {
+                    "type": "string"
+                },
+                "geographical_region": {
+                    "description": "All instances of GeographicalRegions",
+                    "items": {
+                        "$ref": "#/$defs/GeographicalRegion"
+                    },
+                    "type": "array"
+                },
+                "identifier": {
+                    "type": "string"
+                },
+                "release_date": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "identifier",
+                "conforms_to",
+                "contact_point",
+                "release_date",
+                "version",
+                "geographical_region"
+            ],
+            "title": "HeatmapDataSet",
+            "type": "object"
+        },
+        "IdentifiedObject": {
+            "additionalProperties": false,
+            "description": "This is a root class to provide common identification for all classes needing identification and naming attributes.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "IdentifiedObject",
+            "type": "object"
+        },
+        "Location": {
+            "additionalProperties": false,
+            "description": "The place, scene, or point of something where someone or something has been, is, and/or will be at a given moment in time. It can be defined with one or more position points (coordinates) in a given coordinate system.",
+            "properties": {
+                "coordinate_system": {
+                    "$ref": "#/$defs/CoordinateSystem",
+                    "description": "Coordinate system used to describe position points of this location."
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "position_points": {
+                    "description": "Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'.",
+                    "items": {
+                        "$ref": "#/$defs/PositionPoint"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "coordinate_system",
+                "position_points"
+            ],
+            "title": "Location",
+            "type": "object"
+        },
+        "MarketEvaluationPoint": {
+            "additionalProperties": false,
+            "description": "The identification of an entity where energy products are measured or computed.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "usage_point_location": {
+                    "$ref": "#/$defs/UsagePointLocation",
+                    "description": "Location of this usage point."
+                }
+            },
+            "required": [
+                "usage_point_location"
+            ],
+            "title": "MarketEvaluationPoint",
+            "type": "object"
+        },
+        "Name": {
+            "additionalProperties": false,
+            "description": "The Name class provides the means to define any number of human readable  names for an object. A name is <b>not</b> to be used for defining inter-object relationships. For inter-object relationships instead use the object identification 'mRID'.",
+            "properties": {
+                "name": {
+                    "description": "Any free text that name the object.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name_type": {
+                    "$ref": "#/$defs/NameType",
+                    "description": "Type of this name."
+                }
+            },
+            "required": [
+                "name_type"
+            ],
+            "title": "Name",
+            "type": "object"
+        },
+        "NameType": {
+            "additionalProperties": false,
+            "description": "Type of name. Possible values for attribute 'name' are implementation dependent but standard profiles may specify types. An enterprise may have multiple IT systems each having its own local name for the same object, e.g. a planning system may have different names from an EMS. An object may also have different names within the same IT system, e.g. localName as defined in CIM version 14. The definition from CIM14 is:The localName is a human readable name of the object. It is a free text name local to a node in a naming hierarchy similar to a file directory structure. A power system related naming hierarchy may be: Substation, VoltageLevel, Equipment etc. Children of the same parent in such a hierarchy have names that typically are unique among them.",
+            "properties": {
+                "description": {
+                    "description": "Description of the name type.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "Name of the name type.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name_type_authority": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/NameTypeAuthority"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Authority responsible for managing names of this type."
+                }
+            },
+            "title": "NameType",
+            "type": "object"
+        },
+        "NameTypeAuthority": {
+            "additionalProperties": false,
+            "description": "Authority responsible for creation and management of names of a given type; typically an organization or an enterprise system.",
+            "properties": {
+                "description": {
+                    "description": "Description of the name type authority.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "name": {
+                    "description": "Name of the name type authority.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "NameTypeAuthority",
+            "type": "object"
+        },
+        "PositionPoint": {
+            "additionalProperties": false,
+            "description": "Set of spatial coordinates that determine a point, defined in the coordinate system specified in 'Location.CoordinateSystem'. Use a single position point instance to describe a point-oriented location. Use a sequence of position points to describe a line-oriented object (physical location of non-point oriented objects like cables or lines), or area of an object (like a substation or a geographical zone - in this case, have first and last position point with the same values).",
+            "properties": {
+                "group_number": {
+                    "description": "Zero-relative sequence number of this group within a series of points; used when there is a need to express disjoint groups of points that are considered to be part of a single location.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "sequence_number": {
+                    "description": "Zero-relative sequence number of this point within a series of points.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "x_position": {
+                    "description": "X axis position.",
+                    "type": "string"
+                },
+                "y_position": {
+                    "description": "Y axis position.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "x_position",
+                "y_position"
+            ],
+            "title": "PositionPoint",
+            "type": "object"
+        },
+        "PostcodeArea": {
+            "additionalProperties": false,
+            "description": "A geographic region that is defined by the initial letters or digits of a postcode.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "location": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Location"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Location of this PostcodeArea."
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "postcode": {
+                    "description": "Identifier for the postcode area. Contain four (4) numbers, followed by two (2) letters, uppercase. No spaces between the numbers and letters, i.e. \"1234AB\". For PC4, omit the letters.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "postcode"
+            ],
+            "title": "PostcodeArea",
+            "type": "object"
+        },
+        "PressureLevelType": {
+            "description": "Pressure level for a gas system.",
+            "enum": [
+                "HD",
+                "EHD"
+            ],
+            "title": "PressureLevelType",
+            "type": "string"
+        },
+        "SubGeographicalRegion": {
+            "additionalProperties": false,
+            "description": "A subset of a geographical region of a power system network model.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "energy_areas": {
+                    "description": "Energy areas contained in the SubGeographicalRegion.",
+                    "items": {
+                        "$ref": "#/$defs/EnergyArea"
+                    },
+                    "type": "array"
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "energy_areas"
+            ],
+            "title": "SubGeographicalRegion",
+            "type": "object"
+        },
+        "TimeSchedule": {
+            "additionalProperties": false,
+            "description": "Description of anything that changes through time. Time schedule is used to perform a single-valued function of time. Use inherited 'type' attribute to give additional information on this schedule, such as: periodic (hourly, daily, weekly, monthly, etc.), day of the month, by date, calendar (specific times and dates).",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "schedule_interval": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DateTimeInterval"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Schedule date and time interval."
+                }
+            },
+            "title": "TimeSchedule",
+            "type": "object"
+        },
+        "UnitSymbol": {
+            "description": "The derived units defined for usage in the CIM. In some cases, the derived unit is equal to an SI unit. Whenever possible, the standard derived symbol is used instead of the formula for the derived unit. For example, the unit symbol Farad is defined as \"F\" instead of \"CPerV\". In cases where a standard symbol does not exist for a derived unit, the formula for the unit is used as the unit symbol. For example, density does not have a standard symbol and so it is represented as \"kgPerm3\". With the exception of the \"kg\", which is an SI unit, the unit symbols do not contain multipliers and therefore represent the base derived unit to which a multiplier can be applied as a whole. Every unit symbol is treated as an unparseable text as if it were a single-letter symbol. The meaning of each unit symbol is defined by the accompanying descriptive text and not by the text contents of the unit symbol.To allow the widest possible range of serializations without requiring special character handling, several substitutions are made which deviate from the format described in IEC 80000-1. The division symbol \"/\" is replaced by the letters \"Per\". Exponents are written in plain text after the unit as \"m3\" instead of being formatted as \"m\" with a superscript of 3  or introducing a symbol as in \"m^3\". The degree symbol \"\u00b0\" is replaced with the letters \"deg\". Any clarification of the meaning for a substitution is included in the description for the unit symbol.Non-SI units are included in list of unit symbols to allow sources of data to be correctly labelled with their non-SI units (for example, a GPS sensor that is reporting numbers that represent feet instead of meters). This allows software to use the unit symbol information correctly convert and scale the raw data of those sources into SI-based units. The integer values are used for harmonization with IEC 61850.",
+            "enum": [
+                "m3Perh",
+                "m3Pers"
+            ],
+            "title": "UnitSymbol",
+            "type": "string"
+        },
+        "UsagePoint": {
+            "additionalProperties": false,
+            "description": "Logical or physical point in the network to which readings or events may be attributed. Used at the place where a physical or virtual meter may be located; however, it is not required that a meter be present.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "usage_point_location": {
+                    "$ref": "#/$defs/UsagePointLocation",
+                    "description": "Location of this usage point."
+                }
+            },
+            "required": [
+                "usage_point_location"
+            ],
+            "title": "UsagePoint",
+            "type": "object"
+        },
+        "UsagePointLocation": {
+            "additionalProperties": false,
+            "description": "Location of an individual usage point.",
+            "properties": {
+                "coordinate_system": {
+                    "$ref": "#/$defs/CoordinateSystem",
+                    "description": "Coordinate system used to describe position points of this location."
+                },
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "position_points": {
+                    "description": "Sequence of position points describing this location, expressed in coordinate system 'Location.CoordinateSystem'.",
+                    "items": {
+                        "$ref": "#/$defs/PositionPoint"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "coordinate_system",
+                "position_points"
+            ],
+            "title": "UsagePointLocation",
+            "type": "object"
+        },
+        "Work": {
+            "additionalProperties": false,
+            "description": "Document used to request, initiate, track and record work.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "time_schedules": {
+                    "description": "All time schedules for this work or work task.",
+                    "items": {
+                        "$ref": "#/$defs/WorkTimeSchedule"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Work",
+            "type": "object"
+        },
+        "WorkTimeSchedule": {
+            "additionalProperties": false,
+            "description": "Time schedule specific to work.",
+            "properties": {
+                "description": {
+                    "description": "The description is a free human readable text describing or naming the object. It may be non unique and may not correlate to a naming hierarchy.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "m_rid": {
+                    "description": "Master resource identifier issued by a model authority. The mRID is unique within an exchange context. Global uniqueness is easily achieved by using a UUID, as specified in RFC 4122, for the mRID. The use of UUID is strongly recommended.For CIMXML data files in RDF syntax conforming to IEC 61970-552, the mRID is mapped to rdf:ID or rdf:about attributes that identify CIM object elements.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "names": {
+                    "description": "All names of this identified object.",
+                    "items": {
+                        "$ref": "#/$defs/Name"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "schedule_interval": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/DateTimeInterval"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Schedule date and time interval."
+                }
+            },
+            "title": "WorkTimeSchedule",
+            "type": "object"
+        }
+    },
+    "$id": "http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-groengas",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "description": "A single instance of a published dataset.",
+    "metamodel_version": "1.7.0",
+    "properties": {
+        "conforms_to": {
+            "type": "string"
+        },
+        "contact_point": {
+            "type": "string"
+        },
+        "geographical_region": {
+            "description": "All instances of GeographicalRegions",
+            "items": {
+                "$ref": "#/$defs/GeographicalRegion"
+            },
+            "type": "array"
+        },
+        "identifier": {
+            "type": "string"
+        },
+        "release_date": {
+            "type": "string"
+        },
+        "version": {
+            "type": "string"
+        }
+    },
+    "required": [
+        "identifier",
+        "conforms_to",
+        "contact_point",
+        "release_date",
+        "version",
+        "geographical_region"
+    ],
+    "title": "dp-capaciteitskaart-groengas",
+    "type": "object",
+    "version": "v0.draft"
+}

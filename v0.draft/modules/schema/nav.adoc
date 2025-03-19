@@ -1,0 +1,93 @@
+[.truncate]
+* Information model
+** xref::index.adoc[Index]
+** Classes
+*** xref::class/HeatmapDataSet.adoc[`HeatmapDataSet` (root)]
+
+*** xref::class/BaseWork.adoc[`BaseWork`]
+
+
+
+*** xref::class/CapacityScale.adoc[`CapacityScale`]
+
+
+
+*** xref::class/CoordinateSystem.adoc[`CoordinateSystem`]
+
+
+
+*** xref::class/DateTimeInterval.adoc[`DateTimeInterval`]
+
+
+
+*** xref::class/Document.adoc[`Document`]
+
+
+
+*** xref::class/EnergyArea.adoc[`EnergyArea`]
+
+
+
+*** xref::class/GeographicalRegion.adoc[`GeographicalRegion`]
+
+
+
+
+
+*** xref::class/Location.adoc[`Location`]
+
+
+
+*** xref::class/MarketEvaluationPoint.adoc[`MarketEvaluationPoint`]
+
+
+
+*** xref::class/Name.adoc[`Name`]
+
+
+
+*** xref::class/NameType.adoc[`NameType`]
+
+
+
+*** xref::class/NameTypeAuthority.adoc[`NameTypeAuthority`]
+
+
+
+*** xref::class/PositionPoint.adoc[`PositionPoint`]
+
+
+
+*** xref::class/PostcodeArea.adoc[`PostcodeArea`]
+
+
+
+*** xref::class/SubGeographicalRegion.adoc[`SubGeographicalRegion`]
+
+
+
+*** xref::class/TimeSchedule.adoc[`TimeSchedule`]
+
+
+
+*** xref::class/UsagePoint.adoc[`UsagePoint`]
+
+
+
+*** xref::class/UsagePointLocation.adoc[`UsagePointLocation`]
+
+
+
+*** xref::class/Work.adoc[`Work`]
+
+
+
+*** xref::class/WorkTimeSchedule.adoc[`WorkTimeSchedule`]
+
+
+
+
+** Enumerations
+*** xref::enumeration/CapacityScaleType.adoc[`CapacityScaleType`]
+*** xref::enumeration/PressureLevelType.adoc[`PressureLevelType`]
+*** xref::enumeration/UnitSymbol.adoc[`UnitSymbol`]

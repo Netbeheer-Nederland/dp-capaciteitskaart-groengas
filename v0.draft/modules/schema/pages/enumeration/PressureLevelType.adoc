@@ -1,0 +1,37 @@
+= `PressureLevelType`
+:toclevels: 4
+
+
++++Pressure level for a gas system.+++
+
+
+[cols="h,3",width=65%]
+|===
+| Type
+| Enumeration
+
+| URI
+| `this:PressureLevelType`
+
+
+| CIM standard (perspective)
+| IEC61970 (Grid)
+
+
+
+|===
+
+== Values
+
+[cols="1,1,5",width=100%]
+|===
+| Value | URI | Description
+
+| `EHD`
+| `this:PressureLevelType.EHD`
+| n/a
+
+| `HD`
+| `this:PressureLevelType.HD`
+| n/a
+|===
