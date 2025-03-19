@@ -14,12 +14,13 @@ geographical_region:
             generation_potential:
               unit: m3Perh
               value: '2000_5000'
+            pressure_level: 'HD'
             works:
               - time_schedules:
                   - schedule_interval:
                       end: '2025-03-19'
                       start: '2025-03-19'
-                description: 'Opgraving gasleiding Utrechtseweg'
+                description: 'Opgraving gasleiding Utrechtseweg.'
             postcode_areas:
               - postcode: '1234AB'
             market_evaluation_points:

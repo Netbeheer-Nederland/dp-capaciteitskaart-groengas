@@ -20,7 +20,7 @@ prefixes:
 default_prefix: http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-groengas/
 enums:
   CapacityScaleType:
-    description: TODO
+    description: Capacity, expressed on a scale.
     enum_uri: this:CapacityScaleKind
     permissible_values:
       '1000_2000':
@@ -29,6 +29,14 @@ enums:
         meaning: this:CapacityScaleKind.2000_5000
       '5000_15000':
         meaning: this:CapacityScaleKind.5000_15000
+  PressureLevelType:
+      description: Pressure level for a gas system.
+      enum_uri: this:PressureLevelType
+      permissible_values:
+        'HD':
+          meaning: this:PressureLevelType.HD
+        'EHD':
+          meaning: this:PressureLevelType.EHD
   UnitSymbol:
     description: "The derived units defined for usage in the CIM. In some cases, the\
       \ derived unit is equal to an SI unit. Whenever possible, the standard derived\
@@ -111,23 +119,33 @@ classes:
     is_a: IdentifiedObject
     attributes:
       generation_available_capacity:
-        description: TODO
-        exact_mappings:
-        - nbnl:beschikbareInvoedingscapaciteit
+        description: Transport capacity available to fulfill transport requests
+          that have not yet been submitted in an energy area.
         slot_uri: this:EnergyArea.generationAvailableCapacity
         range: CapacityScale
         required: true
         multivalued: false
         minimum_value: 0
-      generation_potential:
-        description: TODO
         exact_mappings:
-        - nbnl:groengasproductiepotentieel
+          - nbnl:beschikbareInvoedingscapaciteit
+      generation_potential:
+        description: Amount of gas that can be produced, taking into account
+          environmental factors such as available raw materials.
         slot_uri: this:EnergyArea.generationPotential
         range: CapacityScale
         required: false
         multivalued: false
         minimum_value: 0
+        exact_mappings:
+          - nbnl:groengasproductiepotentieel
+      pressure_level:
+        description: Range of gas pressure within which a system operates.
+        slot_uri: this:EnergyArea.pressureLevel
+        range: PressureLevelType
+        required: true
+        multivalued: false
+        exact_mappings:
+          - nbnl:gasdrukniveau
       works:
         description: All the works performed for this EnergyArea.
         slot_uri: this:EnergyArea.Works
@@ -148,6 +166,8 @@ classes:
         required: false
         multivalued: true
     class_uri: cim:EnergyArea
+    exact_mappings:
+      - nbnl:voedingsgebied
   IdentifiedObject:
     description: This is a root class to provide common identification for all classes
       needing identification and naming attributes.
@@ -255,6 +275,8 @@ classes:
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Work
     is_a: BaseWork
     class_uri: cim:Work
+    exact_mappings:
+      - nbnl:netuitbreiding
   BaseWork:
     description: Common representation for work and work tasks.
     from_schema: https://cim.ucaiug.io/ns#TC57CIM.IEC61968.Work
@@ -367,7 +389,7 @@ classes:
       represents_cim_data_type:
         tag: represents_cim_data_type
         value: true
-    description: TODO
+    description: Capacity, expressed on a scale.
     attributes:
       unit:
         slot_uri: this:CapacityScale.unit
