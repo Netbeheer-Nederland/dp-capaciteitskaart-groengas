@@ -1,11 +1,14 @@
 = Groengascapaciteitskaart
 
-
+To address current and future bottlenecks in the grid capacity for green gas,
+NDG-Green Gas has developed the Green Gas Grid Capacity Program. This program
+focuses on providing insight into the available transport capacity of the gas
+grid for all grid operators in the Netherlands.
 
 .Data Product
 [d2,svg,theme=4]
 ----
-grid-rows: 5
+grid-rows: 10
 grid-columns: 5
 
 horizontal-gap: 160
@@ -17,6 +20,42 @@ vars: {
   }
 }
 
+1.class: empty
+2.class: empty
+3.class: empty
+CapacityScale.class: grid
+4.class: empty
+
+HeatmapDataSet.class: dataset
+GeographicalRegion.class: enterprise
+SubGeographicalRegion.class: enterprise
+EnergyArea.class: grid
+Work.class: enterprise
+
+5.class: empty
+6.class: empty
+MarketEvaluationPoint.class: market
+PostcodeArea.class: enterprise
+WorkTimeSchedule.class: enterprise
+
+7.class: empty
+8.class: empty
+UsagePointLocation.class: enterprise
+Location.class: enterprise
+DateTimeInterval.class: enterprise
+
+HeatmapDataSet -> GeographicalRegion: "geographical_region"
+GeographicalRegion -> SubGeographicalRegion: "regions"
+SubGeographicalRegion -> EnergyArea: "energy_areas"
+EnergyArea -> CapacityScale: "generation_available_capacity"
+EnergyArea -> CapacityScale: "generation_potential"
+EnergyArea -> Work: "works"
+Work -> WorkTimeSchedule: "time_schedules"
+WorkTimeSchedule -> DateTimeInterval: "schedule_interval"
+EnergyArea -> PostcodeArea: "postcode_areas"
+PostcodeArea -> Location: "location"
+EnergyArea -> MarketEvaluationPoint: "market_evaluation_points"
+MarketEvaluationPoint -> UsagePointLocation: "usage_point_location"
 
 legend: "" {
   style: {
