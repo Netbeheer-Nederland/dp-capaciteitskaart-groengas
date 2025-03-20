@@ -404,6 +404,8 @@ classes:
         required: true
         multivalued: false
     class_uri: this:CapacityScale
+    exact_mappings:
+      - nbnl:capaciteitsbereik
   PostcodeArea:
     description: A geographic region that is defined by the initial letters or digits
       of a postcode.
