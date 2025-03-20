@@ -35,8 +35,10 @@ enums:
       permissible_values:
         'HD':
           meaning: this:PressureLevelType.HD
+          description: High Pressure.
         'EHD':
           meaning: this:PressureLevelType.EHD
+          description: Extra High Pressure.
   UnitSymbol:
     description: "The derived units defined for usage in the CIM. In some cases, the\
       \ derived unit is equal to an SI unit. Whenever possible, the standard derived\
