@@ -53,7 +53,7 @@ GeographicalRegion {
 
 
 
-HeatmapDataSet -> GeographicalRegion: geographical_region
+HeatmapDataSet -> GeographicalRegion: geographical_regions
 
 
 legend: "" {
@@ -134,7 +134,7 @@ legend: "" {
 | https://w3id.org/linkml/String[`string`]
 | n/a
 
-| <<geographical_region,`geographical_region`>>
+| <<geographical_regions,`geographical_regions`>>
 | 1..*
 | xref::class/GeographicalRegion.adoc[`GeographicalRegion`]
 | +++All instances of GeographicalRegions+++
@@ -178,8 +178,8 @@ legend: "" {
 |===
 
 //[discrete]
-[#geographical_region]
-=== `geographical_region`
+[#geographical_regions]
+=== `geographical_regions`
 +++All instances of GeographicalRegions+++
 
 [cols="h,4",width=65%]

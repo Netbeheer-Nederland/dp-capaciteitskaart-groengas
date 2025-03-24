@@ -103,7 +103,7 @@ classes:
         range: string
         multivalued: false
         required: true
-      geographical_region:
+      geographical_regions:
         description: All instances of GeographicalRegions
         slot_uri: this:HeatmapDataSet.GeographicalRegions
         range: GeographicalRegion

@@ -302,7 +302,7 @@
                 "contact_point": {
                     "type": "string"
                 },
-                "geographical_region": {
+                "geographical_regions": {
                     "description": "All instances of GeographicalRegions",
                     "items": {
                         "$ref": "#/$defs/GeographicalRegion"
@@ -325,7 +325,7 @@
                 "contact_point",
                 "release_date",
                 "version",
-                "geographical_region"
+                "geographical_regions"
             ],
             "title": "HeatmapDataSet",
             "type": "object"
@@ -896,7 +896,7 @@
         "contact_point": {
             "type": "string"
         },
-        "geographical_region": {
+        "geographical_regions": {
             "description": "All instances of GeographicalRegions",
             "items": {
                 "$ref": "#/$defs/GeographicalRegion"
@@ -919,7 +919,7 @@
         "contact_point",
         "release_date",
         "version",
-        "geographical_region"
+        "geographical_regions"
     ],
     "title": "dp-capaciteitskaart-groengas",
     "type": "object",

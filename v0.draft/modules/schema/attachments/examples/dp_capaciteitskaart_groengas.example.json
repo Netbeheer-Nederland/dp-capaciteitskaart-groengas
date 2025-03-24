@@ -4,7 +4,7 @@
   "contact_point": "ritger.teunissen@alliander.com",
   "release_date": "2025-03-19",
   "version": "1.0.0",
-  "geographical_region": [
+  "geographical_regions": [
     {
       "description": "Netherlands",
       "regions": [
