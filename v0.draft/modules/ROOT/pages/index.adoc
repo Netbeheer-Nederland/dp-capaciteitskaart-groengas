@@ -42,7 +42,7 @@ WorkTimeSchedule.class: enterprise
 8.class: empty
 UsagePointLocation.class: enterprise
 Location.class: enterprise
-DateTimeInterval.class: enterprise
+DateTimeInterval.class: grid
 
 HeatmapDataSet -> GeographicalRegion: "geographical_region"
 GeographicalRegion -> SubGeographicalRegion: "regions"
