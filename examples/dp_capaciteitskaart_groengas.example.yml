@@ -1,0 +1,32 @@
+identifier: 'b6ef5718-c533-4a23-bb55-7364a5dff3c4'
+conforms_to: http://data.netbeheernederland.nl/data-product/dp-capaciteitskaart-groengas
+contact_point: 'ritger.teunissen@alliander.com'
+release_date: '2025-03-19'
+version: 1.0.0
+geographical_regions:
+  - description: 'Netherlands'
+    regions:
+      - description: 'Liander'
+        energy_areas:
+          - generation_available_capacity:
+              unit: m3Perh
+              value: '1000_2000'
+            generation_potential:
+              unit: m3Perh
+              value: '2000_5000'
+            pressure_level: 'HD'
+            works:
+              - time_schedules:
+                  - schedule_interval:
+                      end: '2025-03-19'
+                      start: '2025-03-19'
+                description: 'Opgraving gasleiding Utrechtseweg.'
+            postcode_areas:
+              - postcode: '1234AB'
+            market_evaluation_points:
+              - usage_point_location:
+                  coordinate_system:
+                    crs_urn: 'urn:ogc:def:crs:EPSG::4.3.2.6'
+                  position_points:
+                    - x_position: '51.9840'
+                      y_position: '5.8987'
